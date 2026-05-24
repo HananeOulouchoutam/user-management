@@ -1,7 +1,7 @@
 import { Search, X } from "lucide-react";
 import React from "react";
 
-const SeachBar = ({
+const SearchBar = ({
   value,
   onChange,
   onClear,
@@ -65,4 +65,4 @@ const SeachBar = ({
   );
 };
 
-export default SeachBar;
+export default SearchBar;
