@@ -11,12 +11,7 @@ const port = process.env.PORT || 5001;
 
 // MongoDB connection
 mongoose
-  .connect(
-    process.env.MONGODB_URI.replace(
-      "<DB_PASSWORD>",
-      process.env.DATABASE_PASSWORD,
-    ),
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB Connected Successfully"))
   .catch((error) => console.error("MongoDB Connection Error:", error.message));
 
