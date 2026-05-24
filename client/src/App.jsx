@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import StatsCard from "./components/StatsCard";
 import SeachBar from "./components/SeachBar";
 import UserTable from "./components/UserTable";
-import UserModel from "./components/UserModel";
+import UserModel from "./components/UserModel.jsx";
 
 import {
   getUsers,
