@@ -1,5 +1,6 @@
 import User from "../modules/userModel.js";
 
+// Get stats : total , active , inactive
 export const getStats = async (req, res) => {
   try {
     const total = await User.countDocuments();
@@ -14,6 +15,7 @@ export const getStats = async (req, res) => {
   }
 };
 
+//search User
 export const searchUsers = async (req, res) => {
   try {
     const query = req.params.query;
@@ -82,9 +84,8 @@ export const getAllUsers = async (req, res) => {
 //get Single User
 export const getUserById = async (req, res) => {
   try {
-    const user = await User.findById(req.params.is);
+    const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "user not found" });
-
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({
@@ -130,7 +131,7 @@ export const updateUser = async (req, res) => {
   try {
     const { name, email, phone, status } = req.body;
 
-    if (email) {
+    if(email) {
       const exists = await User.find({ email, _id: { $ne: req.params.id } });
       if (exists.length > 0) {
         return res
@@ -158,6 +159,8 @@ export const updateUser = async (req, res) => {
   }
 };
 
+
+// delete User
 export const deleteUser = async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);

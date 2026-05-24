@@ -10,7 +10,7 @@ export const getUsers = async (page = 1, limit = 5) => {
 //search users
 export const searchUsers = async (term = "", page = 1, limit = 5) => {
   const res = await fetch(
-    `${API_URL}/seach/${encodeURIComponent(term)}?page=${page}&limit=${limit}`,
+    `${API_URL}/search/${encodeURIComponent(term)}?page=${page}&limit=${limit}`,
   );
   if (!res.ok) throw new Error("Failed to search users");
   return res.json();
@@ -41,7 +41,7 @@ export const addUser = async (data) => {
 // update existing user
 export const updateUser = async (id, data) => {
   const res = await fetch(`${API_URL}/${id}`, {
-    methode: "PUT",
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
@@ -51,10 +51,9 @@ export const updateUser = async (id, data) => {
 };
 
 //deleteUser
-
 export const deleteUser = async (id) => {
   const res = await fetch(`${API_URL}/${id}`, {
-    methode: "DELETE",
+    method: "DELETE",
   });
   if (!res.ok) throw new Error("Failed to delete User");
   return res.json();
