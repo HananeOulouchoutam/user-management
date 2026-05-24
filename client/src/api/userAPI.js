@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/v1/users";
+const API_URL = import.meta.env.VITE_API_URL;
 
 //get users with pagination
 export const getUsers = async (page = 1, limit = 5) => {
