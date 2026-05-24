@@ -1,9 +1,9 @@
 import { Plus, User, Users, Users2, Check, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import StatsCard from "./components/StatsCard";
-import SeachBar from "./components/SeachBar";
+import SearchBar from "./components/SearchBar";
 import UserTable from "./components/UserTable";
-import UserModel from "./components/UserModel.jsx";
+// import UserModel from "./components/UserModel.jsx";
 
 import {
   getUsers,
@@ -209,7 +209,7 @@ const App = () => {
         </div>
 
         {/* Search */}
-        <SeachBar
+        <SearchBar
           value={searchTerm}
           onChange={(val) => {
             setSearchTerm(val);
@@ -239,7 +239,7 @@ const App = () => {
         />
 
         {/* User Model */}
-        <UserModel
+        {/* <UserModel
           isOpen={isModelOpen}
           onClose={closeMode}
           formData={formData}
@@ -247,7 +247,7 @@ const App = () => {
           onSubmit={handleSubmit}
           loading={loading}
           status={status}
-        />
+        /> */}
       </main>
     </div>
   );
